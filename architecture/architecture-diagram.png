@@ -1,0 +1,26 @@
+                         INTERNET
+                            │
+                            ▼
+                 ┌────────────────────┐
+                 │ Application Load   │
+                 │ Balancer           │
+                 │ Public Subnets     │
+                 └─────────┬──────────┘
+                           │
+                ┌──────────┴──────────┐
+                ▼                     ▼
+        ┌──────────────┐      ┌──────────────┐
+        │ EC2 App      │      │ EC2 App      │
+        │ Private AZ-A │      │ Private AZ-B │
+        └──────┬───────┘      └──────┬───────┘
+               │                     │
+               └──────────┬──────────┘
+                          ▼
+                 ┌─────────────────┐
+                 │  RDS MySQL      │
+                 │  Private DB     │
+                 │  Subnets        │
+                 └─────────────────┘
+
+        NAT Gateway → Internet
+        for private app outbound traffic
